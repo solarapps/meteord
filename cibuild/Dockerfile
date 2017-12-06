@@ -1,6 +1,17 @@
 FROM abernix/meteord:node-8.9.1-base
 MAINTAINER Jesse Rosenberger
 
+# This prevents us from get errors during apt-get installs as it notifies the
+# environment that it is a non-interactive one.
+ENV DEBIAN_FRONTEND noninteractive
+
+# Install binary dependencies
+RUN \
+  apt-get update && \
+  apt-get -y install \
+    wget \
+    curl
+
 ARG NODE_VERSION
 ENV NODE_VERSION ${NODE_VERSION:-8.9.1}
 
