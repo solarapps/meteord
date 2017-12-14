@@ -1,4 +1,4 @@
-FROM abernix/meteord:node-8.9.1-base
+FROM abernix/meteord:node-8.9.3-base
 MAINTAINER Jesse Rosenberger
 
 # This prevents us from get errors during apt-get installs as it notifies the
@@ -6,7 +6,7 @@ MAINTAINER Jesse Rosenberger
 ENV DEBIAN_FRONTEND noninteractive
 
 ARG NODE_VERSION
-ENV NODE_VERSION ${NODE_VERSION:-8.9.1}
+ENV NODE_VERSION ${NODE_VERSION:-8.9.3}
 
 RUN apt-get -y install net-tools
 RUN bash $METEORD_DIR/lib/install_meteor.sh
